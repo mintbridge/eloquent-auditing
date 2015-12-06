@@ -35,6 +35,23 @@ trait Auditable
     }
 
     /**
+     * Get the changed model data, and check it against the whitelist for the event, if
+     * one has been set
+     *
+     * @return array
+     */
+    public function getAuditableData($eventName)
+    {
+        $data = $this->getDirty();
+
+        if (isset(static::$auditableData) && isset(static::$auditableData[$eventName])) {
+            $data = array_only($data, static::$auditableData[$eventName]);
+        }
+
+        return $data;
+    }
+
+    /**
      * Get all of the activities performed on the model
      */
     public function activities()

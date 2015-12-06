@@ -66,6 +66,31 @@ class Article extends Eloquent implements AuditableInterface {
 ...
 ```
 
+By default all of the changed model will be stored in the record, this behaviour can be altered by setting a whitelist of attributes called ```$auditableData```, or by overriding the ```getAuditableData``` method.
+
+```php
+use Mintbridge\EloquentAuditing\Auditable;
+use Mintbridge\EloquentAuditing\AuditableInterface;
+
+class Article extends Eloquent implements AuditableInterface {
+
+    use Auditable;
+
+    public static $auditableData = [
+        'created' => [
+            'title',
+            'content',
+            //...
+        ],
+        'updating' => [
+            'content',
+            //...
+        ],
+        //...
+    ];
+...
+```
+
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.

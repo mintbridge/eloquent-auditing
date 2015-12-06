@@ -13,7 +13,7 @@ class Auditor
         // save photo to the loaded model
         $action = new Activity([
             Activity::ATTR_EVENT      => $eventName,
-            Activity::ATTR_DATA       => $model->getDirty(),
+            Activity::ATTR_DATA       => $model->getAuditableData($eventName),
             Activity::ATTR_IP_ADDRESS => Request::ip(),
         ]);
 

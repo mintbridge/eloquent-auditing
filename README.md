@@ -45,14 +45,6 @@ class Article extends Eloquent implements AuditableInterface {
 
     use Auditable;
 ...
-
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## License
-
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 ```
 
 The trait by default will use the event in ```config/auditing.php``` but you can overide this on a per model basis by adding a static ```$auditableEvents``` array of event names to the model. See http://laravel.com/docs/5.1/eloquent#events for the available events.
@@ -73,4 +65,12 @@ class Article extends Eloquent implements AuditableInterface {
     ];
 ...
 ```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 

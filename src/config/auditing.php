@@ -1,4 +1,5 @@
 <?php
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -29,9 +30,9 @@ return [
     | User Model
     |--------------------------------------------------------------------------
     |
-    | The user model to associate with the recorded event, defaults to the auth
+    | The user model to associate with the recorded event, defaults to the app
     | user model
     |
     */
-    'user' => Config::get('auth.model'),
+    'user' => App\User::class,
 ];

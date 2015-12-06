@@ -4,6 +4,7 @@ namespace Mintbridge\EloquentAuditing;
 
 use Auth;
 use Mintbridge\EloquentAuditing\Activity;
+use Request;
 
 class Auditor
 {
@@ -11,8 +12,9 @@ class Auditor
     {
         // save photo to the loaded model
         $action = new Activity([
-            'event' => $eventName,
-            'data'  => $model->getDirty()
+            Activity::ATTR_EVENT      => $eventName,
+            Activity::ATTR_DATA       => $model->getDirty(),
+            Activity::ATTR_IP_ADDRESS => Request::ip(),
         ]);
 
         // set the user

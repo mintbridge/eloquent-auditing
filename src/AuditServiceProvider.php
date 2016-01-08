@@ -26,7 +26,7 @@ class AuditServiceProvider extends ServiceProvider
 
         // Publish migrations
         $this->publishes([
-            __DIR__.'/migrations/create_activities_table.php' => base_path(
+            __DIR__.'/migrations/create_activities_table.php.stub' => base_path(
                 '/database/migrations/'.date('Y_m_d_His', time()).'_create_activities_table.php'
             ),
         ], 'migrations');

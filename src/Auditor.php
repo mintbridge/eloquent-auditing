@@ -9,7 +9,7 @@ class Auditor
 {
     public static function record($eventName, $model)
     {
-        // save photo to the loaded model
+        // save change data with event
         $action = new Activity([
             'event' => $eventName,
             'data'  => $model->getDirty()

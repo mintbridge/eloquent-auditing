@@ -13,7 +13,7 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
             $table->morphs('auditable');
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->string('event');
             $table->text('data')->nullable();
             $table->string('ip_address', 64);

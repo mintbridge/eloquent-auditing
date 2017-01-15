@@ -15,12 +15,12 @@ Once installed add the service provider and facade to your app config
 
 'providers' => [
     '...',
-    'Mintbridge\EloquentAuditing\AuditServiceProvider',
+    Mintbridge\EloquentAuditing\AuditServiceProvider::class,
 ];
 
 'aliases' => [
     ...
-    'Auditor' => 'Mintbridge\EloquentAuditing\AuditorFacade',
+    'Auditor' => Mintbridge\EloquentAuditing\AuditorFacade::class,
 ];
 ```
 
@@ -73,4 +73,3 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-

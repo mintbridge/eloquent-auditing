@@ -4,6 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## 0.0.5 - 2017-01-15
+### Changed
+- Allow ip address to be null in database
+- Auto populate ip address from Request
+
 ## 0.0.4 - 2015-01-08
 ### Added
 - Allow the user_id column to be null, so that artisan commands that use

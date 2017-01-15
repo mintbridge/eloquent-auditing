@@ -3,6 +3,7 @@
 namespace Mintbridge\EloquentAuditing;
 
 use Auth;
+use Request;
 use Mintbridge\EloquentAuditing\Activity;
 
 class Auditor
@@ -10,14 +11,18 @@ class Auditor
     public static function record($eventName, $model)
     {
         // save change data with event
-        $action = new Activity([
+        $activity = new Activity([
             'event' => $eventName,
             'data'  => $model->getDirty()
         ]);
 
-        // set the user
-        $action->user()->associate(Auth::user());
+        if ($ip = Request::ip()) {
+            $activity->ip_address = $ip;
+        }
 
-        $model->activities()->save($action);
+        // set the user
+        $activity->user()->associate(Auth::user());
+
+        $model->activities()->save($activity);
     }
 }

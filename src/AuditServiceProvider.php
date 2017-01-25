@@ -25,11 +25,7 @@ class AuditServiceProvider extends ServiceProvider
         ], 'config');
 
         // Publish migrations
-        $this->publishes([
-            __DIR__.'/migrations/create_activities_table.php.stub' => base_path(
-                '/database/migrations/'.date('Y_m_d_His', time()).'_create_activities_table.php'
-            ),
-        ], 'migrations');
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
     }
 
     /**
